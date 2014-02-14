@@ -2,15 +2,20 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+angular.module('iHappyHour', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
+  'iHappyHour.filters',
+  'iHappyHour.services',
+  'iHappyHour.directives',
+  'iHappyHour.controllers'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+    // delete header from client:
+    // http://stackoverflow.com/questions/17289195/angularjs-post-data-to-external-rest-api
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+  $routeProvider.when('/', {templateUrl: 'partials/businessList.html', controller: 'businessList'});
+  $routeProvider.when('/addspecial', {templateUrl: 'partials/addSpecial.html', controller: 'addSpecial'});
+  $routeProvider.otherwise({redirectTo: '/'});
 }]);

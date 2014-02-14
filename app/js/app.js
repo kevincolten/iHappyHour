@@ -4,10 +4,10 @@
 // Declare app level module which depends on filters, and services
 angular.module('iHappyHour', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
+  'iHappyHour.filters',
+  'iHappyHour.services',
+  'iHappyHour.directives',
+  'iHappyHour.controllers'
 ]).
 config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     // delete header from client:
@@ -15,7 +15,7 @@ config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvide
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'businessList'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.when('/', {templateUrl: 'partials/businessList.html', controller: 'businessList'});
+  $routeProvider.when('/addspecial', {templateUrl: 'partials/addSpecial.html', controller: 'addSpecial'});
+  $routeProvider.otherwise({redirectTo: '/'});
 }]);

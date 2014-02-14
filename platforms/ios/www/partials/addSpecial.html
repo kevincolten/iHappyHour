@@ -1,0 +1,61 @@
+<div ng-controller="addSpecial">
+  <form novalidate class="simple-form" ng-submit="submit()">
+    <input ng-keyup="autoComplete(text)"
+           ng-model="text"
+           type="text" />
+    </br>
+    <select ng-model="special.business_reference"
+            ng-options="business.reference as business.description for business in businesses"
+            required>
+            <option value="">Choose Nearby Business:</option>
+    </select>
+    <br>
+    <select ng-model="special.event_type"
+            ng-options="event_type.id as event_type.name for event_type in event_types"
+            required>
+            <option value="">Event Type:</option>
+    </select>
+    <input ng-model="special.start_time"
+           type="time" /> - 
+    <input ng-model="special.end_time"
+           type="time" />
+    <label for="{{event_tag.label}}" ng-repeat="event_tag in event_tags">
+      <input id="{{event_tag.label}}"
+             ng-model="special.event_tags[event_tag.id]"
+             type="checkbox" />
+      {{event_tag.label}}
+    </label>
+    <br>
+    <label for="{{day.name}}" ng-repeat="day in days">
+      <input id="{{day.name}}"
+             ng-model="special.days[day.id]"
+             type="checkbox" />
+      {{day.name}}
+    </label>
+    <br>
+    <select ng-model="special.item"
+            ng-options="item.id as item.name for item in items"
+            required>
+            <option value="">Choose Item:</option>
+    </select>
+    <label for="{{special_tag.label}}" ng-repeat="special_tag in special_tags">
+      <input id="{{special_tag.label}}"
+             ng-model="special.special_tags[special_tag.id]"
+             type="checkbox" />
+      {{special_tag.label}}
+    </label>
+    <br>
+    <label for="item-price">$
+      <input id="item-price"
+             ng-maxlength="5"
+             ng-minlength="1"
+             ng-model="special.price"
+             ng-pattern="/^(\d*\.\d{1,2}|\d+)$/"
+             required
+             type="text" />
+    </label>
+    <br>
+    <input type="submit" id="submit" value="Submit" />
+  </form>
+
+</div>
