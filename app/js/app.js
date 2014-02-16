@@ -15,7 +15,7 @@ config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvide
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-  $routeProvider.when('/', {templateUrl: 'partials/businessList.html', controller: 'businessList'});
+  $routeProvider.when('/', {templateUrl: 'partials/events.html', controller: 'eventList'});
   $routeProvider.when('/addspecial', {templateUrl: 'partials/addSpecial.html', controller: 'addSpecial'});
   $routeProvider.otherwise({redirectTo: '/'});
 }]);

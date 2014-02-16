@@ -5,9 +5,10 @@
         <li>{{business.phone}}</li>
         <li>{{business.website}}</li>
         <ul ng-repeat="event in business.events">
-            <li>{{event.name}} ({{event.days}} {{event.start_time}} - {{event.end_time}})</li>
+            <li>{{event.name}} ({{event.tags}})</li>
+            <li>{{event.days}} {{event.start_time}} - {{event.end_time}}</li>
             <ul ng-repeat="special in event.specials">
-                <li>{{special.item}} {{special.price}}{{special.tags}}</li>
+                <li>{{special.item}} {{special.price}} ({{special.tags}})</li>
             </ul>
         </ul>    
     </ul>
