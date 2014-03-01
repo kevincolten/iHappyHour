@@ -1,7 +1,7 @@
 {
-  "name": "iHappyHour",
-  "description": "Making the hours a little happier",
-  "repository": "https://github.com/mistakevin/iHappyHour.git",
+  "name": "angularjs-seed",
+  "description": "A starter project for AngularJS",
+  "repository": "https://github.com/angular/angular-seed",
   "devDependencies": {
     "phantomjs" : "~1.9",
     "karma" : "~0.10",
